@@ -117,11 +117,18 @@ public class ShootCrudForm extends Panel implements View {
     }
 
     public void enter(ViewChangeListener.ViewChangeEvent event) {
-        GridCrud<Shoot> CompCrudUI = createCompCrudUI();
+        GridCrud<Shoot> compCrudUI = createCompCrudUI();
 
         Button button = new Button("Справочник стрелков", e-> ((MainNavigatorUI) getUI()).getNavigator().navigateTo(((MainNavigatorUI) getUI()).SHOOTER_CRUD_FORM));
 
-        hLayout = new VerticalLayout(CompCrudUI, button);
+        hLayout = new VerticalLayout(compCrudUI, button);
+
+        compCrudUI.setSizeFull();
+        hLayout.setSizeFull();
+        this.setSizeFull();
+
+        hLayout.setExpandRatio(compCrudUI,1f);
+
         this.setContent(hLayout);
     }
 

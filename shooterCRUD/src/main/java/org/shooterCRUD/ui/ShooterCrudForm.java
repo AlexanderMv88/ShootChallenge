@@ -27,7 +27,7 @@ import static com.vaadin.ui.UI.getCurrent;
 
 public class ShooterCrudForm extends Panel implements View {
 
-    private VerticalLayout hLayout;
+    protected VerticalLayout hLayout;
 
     public ShooterCrudForm() {
     }
@@ -112,9 +112,16 @@ public class ShooterCrudForm extends Panel implements View {
     }
 
     public void enter(ViewChangeListener.ViewChangeEvent event) {
-        GridCrud<Shooter> CompCrudUI = createCompCrudUI();
+        GridCrud<Shooter> compCrudUI = createCompCrudUI();
 
-        hLayout = new VerticalLayout(CompCrudUI);
+        hLayout = new VerticalLayout(compCrudUI);
+
+        compCrudUI.setSizeFull();
+        hLayout.setSizeFull();
+        this.setSizeFull();
+
+        hLayout.setExpandRatio(compCrudUI,1f);
+
         this.setContent(hLayout);
     }
 

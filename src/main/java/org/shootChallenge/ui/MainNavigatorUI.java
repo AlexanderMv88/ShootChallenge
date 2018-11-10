@@ -37,7 +37,7 @@ public class MainNavigatorUI extends CommonUI {
     @Override
     protected void init(VaadinRequest vaadinRequest) {
         navigator = new Navigator(this, this);
-        navigator.addView(SHOOTER_CRUD_FORM, ShooterCrudForm.class);
+        navigator.addView(SHOOTER_CRUD_FORM, ShooterCrudFormExt.class);
         navigator.addView(SHOOT_CRUD_FORM, ShootCrudForm.class);
         navigator.navigateTo(SHOOT_CRUD_FORM);
     }
